@@ -1,0 +1,1265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>Grandspan Development Corporation | Engineering & Structural Steel Fabrication Philippines</title>
+  <meta name="description" content="Grandspan Development Corporation is an engineering and structural steel fabrication company in Binangonan, Rizal, offering design, fabrication, erection, general construction, storage tanks, power plant structures, and trailer fabrication." />
+
+  <style>
+    :root {
+      --ink: #071827;
+      --blueprint: #0a2742;
+      --blueprint-2: #0f3a5c;
+      --steel: #66727e;
+      --steel-2: #d9e1e8;
+      --panel: #ffffff;
+      --paper: #f4f7fa;
+      --line: #d7e0e7;
+      --orange: #f08a24;
+      --red: #c62c35;
+      --cyan: #7dd3fc;
+      --muted: #66717c;
+      --shadow: 0 22px 60px rgba(7, 24, 39, 0.14);
+      --radius: 18px;
+      --max: 1220px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      margin: 0;
+      font-family: "Segoe UI", Arial, Helvetica, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .utility {
+      background: var(--ink);
+      color: #dbe7f1;
+      font-size: 0.86rem;
+      padding: 9px 5%;
+    }
+
+    .utility-inner {
+      max-width: var(--max);
+      margin: auto;
+      display: flex;
+      justify-content: space-between;
+      gap: 18px;
+      flex-wrap: wrap;
+    }
+
+    .nav {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(255,255,255,0.96);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(12px);
+    }
+
+    .nav-inner {
+      max-width: var(--max);
+      margin: auto;
+      padding: 15px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      min-width: 250px;
+    }
+
+    .logo img {
+      width: 230px;
+      height: auto;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 24px;
+      color: #354150;
+      font-weight: 700;
+      font-size: 0.92rem;
+    }
+
+    .nav-links a {
+      position: relative;
+      padding: 8px 0;
+    }
+
+    .nav-links a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      width: 0;
+      height: 2px;
+      background: var(--orange);
+      transition: 0.18s ease;
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      min-height: 46px;
+      padding: 0 19px;
+      border-radius: 4px;
+      border: 1px solid transparent;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      transition: 0.18s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--red);
+      color: #fff;
+      box-shadow: 0 12px 24px rgba(198,44,53,0.24);
+    }
+
+    .btn-primary:hover { transform: translateY(-2px); }
+
+    .btn-outline {
+      color: #fff;
+      border-color: rgba(255,255,255,0.35);
+      background: rgba(255,255,255,0.06);
+    }
+
+    .btn-outline:hover {
+      background: #fff;
+      color: var(--blueprint);
+    }
+
+    .section {
+      padding: 82px 5%;
+    }
+
+    .container {
+      max-width: var(--max);
+      margin: auto;
+    }
+
+    .hero {
+      position: relative;
+      min-height: 760px;
+      color: #fff;
+      overflow: hidden;
+      background:
+        linear-gradient(105deg, rgba(7,24,39,0.96) 0%, rgba(10,39,66,0.92) 48%, rgba(10,39,66,0.76) 100%),
+        url("https://www.grandspan.ph/images/subbanner/image2.jpg") center / cover no-repeat;
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(125,211,252,0.08) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(125,211,252,0.08) 1px, transparent 1px);
+      background-size: 42px 42px;
+      mask-image: linear-gradient(to bottom, rgba(0,0,0,0.85), rgba(0,0,0,0.25));
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      right: -120px;
+      bottom: -200px;
+      width: 560px;
+      height: 560px;
+      border: 1px solid rgba(125,211,252,0.2);
+      border-radius: 50%;
+      box-shadow: 0 0 0 45px rgba(125,211,252,0.03), 0 0 0 90px rgba(125,211,252,0.02);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 2;
+      max-width: var(--max);
+      margin: auto;
+      padding: 102px 5% 72px;
+      display: grid;
+      grid-template-columns: 1.08fr 0.92fr;
+      gap: 54px;
+      align-items: center;
+    }
+
+    .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      color: #f7bb7a;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      font-size: 0.78rem;
+      font-weight: 900;
+      margin-bottom: 18px;
+    }
+
+    .label::before {
+      content: "";
+      width: 38px;
+      height: 2px;
+      background: var(--orange);
+    }
+
+    h1 {
+      font-size: clamp(2.55rem, 5.4vw, 5.6rem);
+      line-height: 0.98;
+      letter-spacing: -0.065em;
+      margin: 0 0 24px;
+      max-width: 900px;
+    }
+
+    .hero p {
+      color: #d8e7f2;
+      max-width: 720px;
+      font-size: 1.13rem;
+      margin: 0 0 32px;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 14px;
+      flex-wrap: wrap;
+      margin-bottom: 34px;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 780px;
+    }
+
+    .stat {
+      position: relative;
+      border: 1px solid rgba(125,211,252,0.18);
+      background: linear-gradient(180deg, rgba(255,255,255,0.11), rgba(255,255,255,0.045));
+      padding: 18px;
+      min-height: 112px;
+    }
+
+    .stat::before,
+    .engineering-card::before,
+    .spec-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 26px;
+      height: 26px;
+      border-top: 3px solid var(--orange);
+      border-left: 3px solid var(--orange);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 2rem;
+      line-height: 1;
+      color: #fff;
+      margin-bottom: 8px;
+    }
+
+    .stat span {
+      color: #bfd0df;
+      font-size: 0.9rem;
+    }
+
+    .engineering-card {
+      position: relative;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(125,211,252,0.22);
+      box-shadow: 0 30px 90px rgba(0,0,0,0.35);
+      padding: 22px;
+    }
+
+    .project-photo {
+      height: 320px;
+      background: url("https://www.grandspan.ph/images/banner/Untitled11.jpg") center / cover no-repeat;
+      border: 1px solid rgba(255,255,255,0.12);
+      position: relative;
+    }
+
+    .project-photo::after {
+      content: "PARKLINKS BRIDGE • PASIG CITY";
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      background: rgba(7,24,39,0.82);
+      color: #fff;
+      padding: 9px 12px;
+      font-weight: 900;
+      font-size: 0.78rem;
+      letter-spacing: 0.08em;
+    }
+
+    .drawing-panel {
+      background:
+        linear-gradient(135deg, rgba(125,211,252,0.08), rgba(255,255,255,0.03)),
+        repeating-linear-gradient(0deg, transparent 0 25px, rgba(125,211,252,0.08) 25px 26px),
+        repeating-linear-gradient(90deg, transparent 0 25px, rgba(125,211,252,0.08) 25px 26px);
+      border: 1px solid rgba(125,211,252,0.18);
+      padding: 18px;
+      margin-top: 14px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+    }
+
+    .drawing-panel span {
+      color: #cfe8fb;
+      font-size: 0.86rem;
+    }
+
+    .drawing-panel strong {
+      display: block;
+      color: #fff;
+      font-size: 1.1rem;
+    }
+
+    .section-head {
+      max-width: 820px;
+      margin-bottom: 34px;
+    }
+
+    .section-kicker {
+      display: inline-flex;
+      gap: 10px;
+      align-items: center;
+      color: var(--red);
+      text-transform: uppercase;
+      font-weight: 900;
+      letter-spacing: 0.13em;
+      font-size: 0.78rem;
+      margin-bottom: 12px;
+    }
+
+    .section-kicker::before {
+      content: "";
+      width: 34px;
+      height: 2px;
+      background: var(--red);
+    }
+
+    h2 {
+      font-size: clamp(2rem, 4vw, 3.25rem);
+      line-height: 1.06;
+      letter-spacing: -0.045em;
+      color: var(--blueprint);
+      margin: 0 0 15px;
+    }
+
+    .section-head p,
+    .lead {
+      color: var(--muted);
+      margin: 0;
+      font-size: 1.03rem;
+    }
+
+    .capability-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: stretch;
+    }
+
+    .image-frame {
+      position: relative;
+      overflow: hidden;
+      min-height: 440px;
+      background: #111;
+      box-shadow: var(--shadow);
+    }
+
+    .image-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      min-height: 440px;
+      filter: saturate(0.9) contrast(1.04);
+    }
+
+    .image-frame::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top, rgba(7,24,39,0.7), transparent 55%);
+    }
+
+    .caption {
+      position: absolute;
+      left: 22px;
+      bottom: 22px;
+      right: 22px;
+      z-index: 2;
+      color: #fff;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+    }
+
+    .spec-stack {
+      display: grid;
+      gap: 14px;
+    }
+
+    .spec-card {
+      position: relative;
+      background: var(--panel);
+      border: 1px solid var(--line);
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .spec-card small {
+      color: var(--red);
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 900;
+    }
+
+    .spec-card h3 {
+      margin: 6px 0 8px;
+      color: var(--blueprint);
+      font-size: 1.3rem;
+    }
+
+    .spec-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .services {
+      background:
+        linear-gradient(rgba(244,247,250,0.96), rgba(244,247,250,0.96)),
+        url("https://www.grandspan.ph/images/subbanner/image1.jpg") center / cover fixed;
+    }
+
+    .service-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
+
+    .service-card {
+      background: rgba(255,255,255,0.96);
+      border: 1px solid var(--line);
+      padding: 26px;
+      min-height: 225px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .service-card::after {
+      content: "";
+      position: absolute;
+      right: -26px;
+      bottom: -26px;
+      width: 90px;
+      height: 90px;
+      border: 14px solid rgba(10,39,66,0.06);
+      transform: rotate(45deg);
+    }
+
+    .service-no {
+      color: var(--orange);
+      font-weight: 950;
+      font-size: 0.82rem;
+      letter-spacing: 0.12em;
+    }
+
+    .service-card h3 {
+      color: var(--blueprint);
+      margin: 12px 0 10px;
+      font-size: 1.2rem;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .process-wrap {
+      background: var(--blueprint);
+      color: #fff;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .process-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(125,211,252,0.07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(125,211,252,0.07) 1px, transparent 1px);
+      background-size: 36px 36px;
+    }
+
+    .process-wrap .container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .process-wrap h2 { color: #fff; }
+    .process-wrap .lead { color: #c9dbe9; }
+
+    .process {
+      margin-top: 36px;
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+    }
+
+    .step {
+      position: relative;
+      border: 1px solid rgba(125,211,252,0.22);
+      background: rgba(255,255,255,0.06);
+      padding: 24px 18px;
+      min-height: 180px;
+    }
+
+    .step::after {
+      content: "→";
+      position: absolute;
+      right: -13px;
+      top: 42px;
+      color: var(--orange);
+      font-size: 1.5rem;
+      font-weight: 900;
+      z-index: 3;
+    }
+
+    .step:last-child::after { display: none; }
+
+    .step span {
+      color: var(--orange);
+      font-weight: 900;
+    }
+
+    .step h3 {
+      margin: 10px 0 8px;
+      color: #fff;
+    }
+
+    .step p {
+      color: #c9dbe9;
+      margin: 0;
+      font-size: 0.92rem;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+
+    .project-card {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+    }
+
+    .project-card img {
+      width: 100%;
+      height: 190px;
+      object-fit: cover;
+      background: #d9e1e8;
+    }
+
+    .project-body {
+      padding: 20px;
+      flex: 1;
+    }
+
+    .project-tag {
+      color: var(--red);
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 900;
+    }
+
+    .project-body h3 {
+      color: var(--blueprint);
+      margin: 8px 0 8px;
+      font-size: 1rem;
+      line-height: 1.25;
+    }
+
+    .project-body p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 0.92rem;
+    }
+
+    .equipment-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      margin-top: 28px;
+    }
+
+    .equipment {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 18px;
+      box-shadow: 0 12px 30px rgba(7,24,39,0.07);
+    }
+
+    .equipment strong {
+      color: var(--blueprint);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .equipment span {
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    .quality {
+      display: grid;
+      grid-template-columns: 0.95fr 1.05fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .certificate-card {
+      background: #fff;
+      border: 1px solid var(--line);
+      padding: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .certificate-card img {
+      width: 100%;
+      max-height: 360px;
+      object-fit: cover;
+      object-position: left center;
+    }
+
+    .quality-list {
+      display: grid;
+      gap: 14px;
+      margin-top: 24px;
+    }
+
+    .quality-item {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+      padding: 16px;
+      background: #fff;
+      border: 1px solid var(--line);
+    }
+
+    .quality-item b {
+      flex: 0 0 34px;
+      height: 34px;
+      background: var(--blueprint);
+      color: #fff;
+      display: grid;
+      place-items: center;
+      font-size: 0.9rem;
+    }
+
+    .quality-item p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .contact-band {
+      background:
+        linear-gradient(110deg, rgba(7,24,39,0.94), rgba(10,39,66,0.84)),
+        url("https://www.grandspan.ph/images/banner/GDC-Landmark-edited.jpg") center / cover no-repeat;
+      color: #fff;
+    }
+
+    .contact-box {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .contact-panel {
+      background: rgba(255,255,255,0.09);
+      border: 1px solid rgba(125,211,252,0.22);
+      padding: 32px;
+    }
+
+    .contact-panel h2 { color: #fff; }
+
+    .contact-panel p {
+      color: #d8e7f2;
+      margin: 0 0 24px;
+    }
+
+    .contact-details {
+      background: rgba(7,24,39,0.68);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 28px;
+      display: grid;
+      gap: 16px;
+    }
+
+    .contact-details div {
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      padding-bottom: 14px;
+    }
+
+    .contact-details div:last-child {
+      border-bottom: 0;
+      padding-bottom: 0;
+    }
+
+    .contact-details small {
+      color: #f7bb7a;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-weight: 900;
+    }
+
+    .contact-details a,
+    .contact-details span {
+      display: block;
+      color: #fff;
+      font-weight: 700;
+      margin-top: 4px;
+    }
+
+    footer {
+      background: var(--ink);
+      color: #d5e0e9;
+      padding: 42px 5%;
+    }
+
+    .footer-inner {
+      max-width: var(--max);
+      margin: auto;
+      display: grid;
+      grid-template-columns: 1.2fr 1fr 1fr;
+      gap: 28px;
+    }
+
+    footer img {
+      width: 260px;
+      background: #fff;
+      padding: 10px;
+      margin-bottom: 16px;
+    }
+
+    footer h3 {
+      margin: 0 0 12px;
+      color: #fff;
+    }
+
+    footer p,
+    footer a {
+      display: block;
+      color: #b8c5d0;
+      margin: 0 0 8px;
+      font-size: 0.94rem;
+    }
+
+    .copyright {
+      max-width: var(--max);
+      margin: 28px auto 0;
+      border-top: 1px solid rgba(255,255,255,0.12);
+      padding-top: 20px;
+      color: #8da0b0;
+      font-size: 0.88rem;
+    }
+
+    @media (max-width: 1080px) {
+      .nav-links { display: none; }
+      .hero-inner,
+      .capability-grid,
+      .quality,
+      .contact-box,
+      .footer-inner {
+        grid-template-columns: 1fr;
+      }
+      .projects-grid,
+      .equipment-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .process {
+        grid-template-columns: 1fr;
+      }
+      .step::after {
+        content: "↓";
+        right: 22px;
+        top: auto;
+        bottom: -18px;
+      }
+    }
+
+    @media (max-width: 720px) {
+      .logo img { width: 190px; }
+      .nav-inner { padding: 13px 4%; }
+      .section { padding: 58px 5%; }
+      .hero-inner { padding: 70px 5% 54px; }
+      .stats,
+      .service-grid,
+      .projects-grid,
+      .equipment-grid {
+        grid-template-columns: 1fr;
+      }
+      .drawing-panel {
+        grid-template-columns: 1fr;
+      }
+      .project-photo { height: 260px; }
+      .btn { width: 100%; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="utility">
+    <div class="utility-inner">
+      <span>Barangay Tagpos, Binangonan, Rizal 1940</span>
+      <span>Marketing: gdcmarketing@grandspan.ph • HR: gdchr_recruitment@grandspan.ph</span>
+    </div>
+  </div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="logo" href="#">
+        <img src="https://www.grandspan.ph/images/misc/logo.jpg" alt="Grandspan Development Corporation logo">
+      </a>
+
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="#engineering">Engineering</a>
+        <a href="#services">Services</a>
+        <a href="#process">Process</a>
+        <a href="#projects">Projects</a>
+        <a href="#equipment">Plant & Equipment</a>
+        <a href="#quality">Quality</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <a class="btn btn-primary" href="#contact">Request Quotation</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-inner">
+        <div>
+          <div class="label">Engineering-led steel fabrication</div>
+          <h1>Structural steel solutions engineered for scale, strength, and precision.</h1>
+          <p>
+            Grandspan Development Corporation delivers structural steel design, fabrication,
+            erection, general construction, power plant structures, storage tanks, and trailer
+            fabrication for domestic and international markets.
+          </p>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Start a Project Inquiry</a>
+            <a class="btn btn-outline" href="#projects">View Engineering Projects</a>
+          </div>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>1979</strong>
+              <span>Established in Binangonan, Rizal</span>
+            </div>
+            <div class="stat">
+              <strong>35 ha</strong>
+              <span>Home office, steel plant, tube mill plant, and trailer assembly</span>
+            </div>
+            <div class="stat">
+              <strong>2,000MT</strong>
+              <span>Rated monthly heavy steel structure capacity</span>
+            </div>
+          </div>
+        </div>
+
+        <aside class="engineering-card" aria-label="Featured Grandspan engineering project">
+          <div class="project-photo"></div>
+          <div class="drawing-panel">
+            <span><strong>Discipline</strong>Structural steel fabrication</span>
+            <span><strong>Output</strong>Bridges, buildings, plants, tanks, trailers</span>
+            <span><strong>Controls</strong>Engineering, technical services, QA/QC</span>
+            <span><strong>Market</strong>Domestic and international projects</span>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="engineering" class="section">
+      <div class="container capability-grid">
+        <div class="image-frame">
+          <img src="https://grandspan.ph/file-manager/images/PLANT.jpg" alt="Grandspan plant aerial view in Binangonan Rizal">
+          <div class="caption">Binangonan plant compound supporting fabrication, tube mill, and trailer assembly operations.</div>
+        </div>
+
+        <div class="spec-stack">
+          <div class="section-head">
+            <div class="section-kicker">Company capability</div>
+            <h2>Built around engineering, production capacity, and quality control.</h2>
+            <p>
+              The redesign should make Grandspan look like a technical engineering partner,
+              not only a gallery website. This section turns existing company facts into
+              a clearer engineering capability story.
+            </p>
+          </div>
+
+          <article class="spec-card">
+            <small>Engineering team</small>
+            <h3>Architectural, structural, civil, and mechanical expertise</h3>
+            <p>Position the company’s licensed professionals and technical staff as a core business advantage.</p>
+          </article>
+
+          <article class="spec-card">
+            <small>Production scale</small>
+            <h3>Heavy steel structure capacity</h3>
+            <p>Highlight the 2,000MT/month rated capacity prominently for contractors, developers, and industrial clients.</p>
+          </article>
+
+          <article class="spec-card">
+            <small>Integrated delivery</small>
+            <h3>From detailing to fabrication and erection</h3>
+            <p>Show a complete project lifecycle instead of presenting services as a simple bullet list.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="services" class="section services">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Core services</div>
+          <h2>Engineering services organized for fast client understanding.</h2>
+          <p>
+            These service cards are based on Grandspan’s existing service list, rewritten to sound
+            more professional and suitable for an engineering and steel fabrication company.
+          </p>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <div class="service-no">01 / STRUCTURAL STEEL</div>
+            <h3>Design, Fabrication & Erection</h3>
+            <p>Complete structural steel support for buildings, industrial facilities, bridges, and special structures.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-no">02 / GENERAL CONSTRUCTION</div>
+            <h3>Warehouses, Buildings, Airports & Bridges</h3>
+            <p>Construction support for infrastructure and commercial facilities requiring heavy steel expertise.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-no">03 / BUILT-UP SECTIONS</div>
+            <h3>Wide Flanges, I & H Beams, C & Z Purlins</h3>
+            <p>Fabrication of steel members and built-up sections for structural and industrial applications.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-no">04 / POWER PLANTS</div>
+            <h3>Power Plant Steel Structures</h3>
+            <p>Fabrication and technical support for heavy industrial and energy-related steel structure requirements.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-no">05 / INDUSTRIAL TANKS</div>
+            <h3>Storage Tank Fabrication</h3>
+            <p>Steel fabrication capability for tank projects supported by plate preparation and bending equipment.</p>
+          </article>
+
+          <article class="service-card">
+            <div class="service-no">06 / TRAILERS</div>
+            <h3>Trailer Design & Fabrication</h3>
+            <p>Trailer manufacturing and assembly capability for hauling and transport-related requirements.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="process" class="section process-wrap">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Project delivery workflow</div>
+          <h2>A more engineering-focused homepage should show how work moves through the plant.</h2>
+          <p class="lead">
+            This process section makes the website feel more technical, credible, and aligned with project owners,
+            engineers, procurement teams, and contractors.
+          </p>
+        </div>
+
+        <div class="process">
+          <article class="step">
+            <span>01</span>
+            <h3>Engineering Review</h3>
+            <p>Review project requirements, specifications, drawings, and fabrication constraints.</p>
+          </article>
+
+          <article class="step">
+            <span>02</span>
+            <h3>Detailing & Planning</h3>
+            <p>Translate project requirements into fabrication-ready plans, quantities, and schedules.</p>
+          </article>
+
+          <article class="step">
+            <span>03</span>
+            <h3>Material Preparation</h3>
+            <p>Cutting, drilling, bending, bevelling, and preparation using plant equipment.</p>
+          </article>
+
+          <article class="step">
+            <span>04</span>
+            <h3>Fabrication & QA/QC</h3>
+            <p>Fabricate structural members with inspection checkpoints and quality documentation.</p>
+          </article>
+
+          <article class="step">
+            <span>05</span>
+            <h3>Delivery & Erection</h3>
+            <p>Coordinate delivery, installation, and site activities for project completion.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <div class="section-head">
+          <div class="section-kicker">Selected projects</div>
+          <h2>Replace generic galleries with project case studies.</h2>
+          <p>
+            The original site already has strong project visuals. The redesign uses them in engineering-style cards
+            and leaves space for scope, tonnage, location, client, and year.
+          </p>
+        </div>
+
+        <div class="projects-grid">
+          <article class="project-card">
+            <img src="https://www.grandspan.ph/images/banner/Untitled11.jpg" alt="Parklinks Bridge project by Grandspan">
+            <div class="project-body">
+              <div class="project-tag">Bridge structure</div>
+              <h3>Parklinks Bridge</h3>
+              <p>Featured bridge project. Add scope, tonnage, client, year, and erection details.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="https://grandspan.ph/file-manager/images/On-Going%20Prjects/NATIONAL-MUSEUM-TREE-OF-LIFE.jpg" alt="National Museum Tree of Life steel structure">
+            <div class="project-body">
+              <div class="project-tag">Special structure</div>
+              <h3>National Museum Tree of Life</h3>
+              <p>Showcase the project as a special steel structure with complex geometry and fabrication needs.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="https://grandspan.ph/file-manager/images/On-Going%20Prjects/7-STOREY-PENSIONNE.jpg" alt="7 Storey Pensionne steel structure in Cebu City">
+            <div class="project-body">
+              <div class="project-tag">Building frame</div>
+              <h3>7 Storey Pensionne</h3>
+              <p>Use as an example of commercial building steel framing and site erection capability.</p>
+            </div>
+          </article>
+
+          <article class="project-card">
+            <img src="https://grandspan.ph/file-manager/images/box1.jpg" alt="Large steel roof structure project">
+            <div class="project-body">
+              <div class="project-tag">Large-span structure</div>
+              <h3>Industrial / Large-Span Steel Works</h3>
+              <p>Use this card for warehouses, plants, airport structures, or other large-span works.</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="equipment" class="section">
+      <div class="container capability-grid">
+        <div>
+          <div class="section-head">
+            <div class="section-kicker">Plant & equipment</div>
+            <h2>Turn the long equipment list into a capability matrix.</h2>
+            <p>
+              Grandspan’s existing equipment page has valuable technical data. For better usability,
+              group machines by function so clients can quickly understand what the plant can do.
+            </p>
+          </div>
+
+          <div class="equipment-grid">
+            <div class="equipment">
+              <strong>Plate Forming</strong>
+              <span>Flanging, dishing, roller bending, hydraulic press</span>
+            </div>
+            <div class="equipment">
+              <strong>Cutting & Bevelling</strong>
+              <span>Flame planners, bandsaws, bevelling machines</span>
+            </div>
+            <div class="equipment">
+              <strong>Drilling & Boring</strong>
+              <span>Miyakawa drilling, AMADA copi borer, AMADA multi borer</span>
+            </div>
+            <div class="equipment">
+              <strong>Lifting & Handling</strong>
+              <span>Gantry cranes, overhead cranes, semi-gantry cranes</span>
+            </div>
+            <div class="equipment">
+              <strong>Beamline Support</strong>
+              <span>Preforming, straightening, box column, beamline areas</span>
+            </div>
+            <div class="equipment">
+              <strong>Compressed Air</strong>
+              <span>Atlas Copco and Ingersoll Rand compressor systems</span>
+            </div>
+            <div class="equipment">
+              <strong>Power Support</strong>
+              <span>Caterpillar generator set, 520KW / 650KVA</span>
+            </div>
+            <div class="equipment">
+              <strong>Assembly Areas</strong>
+              <span>Steel plant, tube mill plant, tank fabrication, trailer assembly</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="image-frame">
+          <img src="https://grandspan.ph/file-manager/images/EQUIPMENT.jpg" alt="Grandspan heavy equipment and crane">
+          <div class="caption">Heavy equipment and crane resources support plant and site operations.</div>
+        </div>
+      </div>
+    </section>
+
+    <section id="quality" class="section">
+      <div class="container quality">
+        <div class="certificate-card">
+          <img src="https://grandspan.ph/file-manager/images/Certification/cover.png" alt="Grandspan certificate of registration">
+        </div>
+
+        <div>
+          <div class="section-head">
+            <div class="section-kicker">Quality, safety & compliance</div>
+            <h2>Make certifications and safety policies part of the trust story.</h2>
+            <p>
+              Grandspan’s current website already includes quality, safety, and certification details.
+              This redesign gives them better visual priority and connects them to engineering delivery.
+            </p>
+          </div>
+
+          <div class="quality-list">
+            <div class="quality-item">
+              <b>Q</b>
+              <p><strong>Quality Management:</strong> Highlight the company’s commitment to structural steel design, fabrication, and erection standards.</p>
+            </div>
+            <div class="quality-item">
+              <b>S</b>
+              <p><strong>Safety Culture:</strong> Present accident prevention, safe working conditions, and site discipline as client-facing strengths.</p>
+            </div>
+            <div class="quality-item">
+              <b>C</b>
+              <p><strong>Certifications:</strong> Display ISO and PCAB details clearly, with updated certificate images if newer versions are available.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section contact-band">
+      <div class="container contact-box">
+        <div class="contact-panel">
+          <div class="section-kicker">Project inquiry</div>
+          <h2>Discuss your structural steel or fabrication requirements with Grandspan.</h2>
+          <p>
+            The contact area should separate project inquiries from recruitment inquiries, making the website easier
+            for procurement teams, contractors, and job applicants to use.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="mailto:gdcmarketing@grandspan.ph">Email Marketing</a>
+            <a class="btn btn-outline" href="mailto:gdchr_recruitment@grandspan.ph">Email HR</a>
+          </div>
+        </div>
+
+        <div class="contact-details">
+          <div>
+            <small>Address</small>
+            <span>Brgy. Tagpos, Binangonan, Rizal 1940</span>
+          </div>
+          <div>
+            <small>Marketing Division</small>
+            <a href="mailto:gdcmarketing@grandspan.ph">gdcmarketing@grandspan.ph</a>
+            <span>0917-896-5184</span>
+          </div>
+          <div>
+            <small>Human Resources</small>
+            <a href="mailto:gdchr_recruitment@grandspan.ph">gdchr_recruitment@grandspan.ph</a>
+            <span>0917-896-5181</span>
+          </div>
+          <div>
+            <small>Trunk Line</small>
+            <span>(632) 8651-1451 to (632) 8651-1460</span>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <img src="https://www.grandspan.ph/images/misc/logo.jpg" alt="Grandspan Development Corporation logo">
+        <p>Engineering, structural steel fabrication, erection, general construction, storage tanks, and trailer fabrication.</p>
+      </div>
+
+      <div>
+        <h3>Company</h3>
+        <a href="#engineering">Engineering Capability</a>
+        <a href="#services">Core Services</a>
+        <a href="#projects">Selected Projects</a>
+        <a href="#equipment">Plant & Equipment</a>
+      </div>
+
+      <div>
+        <h3>Contact</h3>
+        <a href="mailto:gdcmarketing@grandspan.ph">gdcmarketing@grandspan.ph</a>
+        <a href="mailto:gdchr_recruitment@grandspan.ph">gdchr_recruitment@grandspan.ph</a>
+        <p>Brgy. Tagpos, Binangonan, Rizal 1940</p>
+      </div>
+    </div>
+
+    <div class="copyright">
+      © 2026 Grandspan Development Corporation. All rights reserved.
+    </div>
+  </footer>
+</body>
+</html>
